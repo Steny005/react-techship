@@ -1,24 +1,22 @@
-import {useState} from "react";
-
-export default function Student(props){ 
-const[text,setText]=useState("");
-const handleChange=(e)=>{
-  setText(e.target.value)
-}
-return(
-  <>
-  <div>
-    <h1>Character Count</h1>
-    <textarea rows="4"
-    cols="40"
-    placeholder="Start typing"
-    value={text}
-    onChange={handleChange}></textarea>
-    <h3>Character count: {text.length}</h3>
-  </div>
+import {useState} from 'react';
+export default function Student(){
+  const [state,showState]=useState(0);
+  const toggle=()=>{
+    showState(!state);
+  };
+  return(
+    <>
+<div>
+  <button onClick={toggle}>
+    {state? "Hide Content": "Show"}
+  </button>
+  {state && (
+        <div>
+          <h3>React is Awesome!</h3>
+          <p>This section can be expanded and collapsed.</p>
+        </div>
+      )}
+</div>
 </>
-);
+  );
 }
-
-
-    
