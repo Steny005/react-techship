@@ -1,24 +1,23 @@
 import {useState} from "react";
 
 export default function Student(props){ 
-  const current=new Date();
-  const currentHour= current.getHours();
-  let greeting="";
-  if   (currentHour>=5 && currentHour <12 ){
-    greeting="Good Morning";
-  }
-   else if   (currentHour>=13 && currentHour <18 ){
-    greeting="Good Afternoon";
-  }
-  else{
-    greeting="Good Afternoon";
-  }
-   return (
-    <>
-    <h1>{greeting}</h1>
-    <h3>Current Railway Time : {currentHour}</h3>
-    </>
-  );
+const[text,setText]=useState("");
+const handleChange=(e)=>{
+  setText(e.target.value)
+}
+return(
+  <>
+  <div>
+    <h1>Character Count</h1>
+    <textarea rows="4"
+    cols="40"
+    placeholder="Start typing"
+    value={text}
+    onChange={handleChange}></textarea>
+    <h3>Character count: {text.length}</h3>
+  </div>
+</>
+);
 }
 
 
