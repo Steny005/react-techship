@@ -1,22 +1,17 @@
-import {useState} from 'react';
 export default function Student(){
-  const [state,showState]=useState(0);
-  const toggle=()=>{
-    showState(!state);
-  };
+  const students=[
+    "Steny",
+    "KP",
+    "Neha"
+  ];
   return(
-    <>
-<div>
-  <button onClick={toggle}>
-    {state? "Hide Content": "Show"}
-  </button>
-  {state && (
-        <div>
-          <h3>React is Awesome!</h3>
-          <p>This section can be expanded and collapsed.</p>
-        </div>
-      )}
-</div>
-</>
-  );
+    <div>
+      <h2>Student List</h2>
+      <ul>
+        {students.map((student,index)=>(
+          <li key={index}>{index + ` `}{student}</li>
+        ))}
+      </ul>
+    </div>
+  )
 }
